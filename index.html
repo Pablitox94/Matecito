@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matesito</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="mate-animado.gif" type="image/gif">
+    <!-- Añadir esto dentro del <head> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    /* Estilos de respaldo para navegadores que no soportan grid */
+    .comment-images {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .comment-image {
+        flex: 1 0 80px;
+        max-width: 100px;
+        height: auto;
+    }
+    
+    @supports (display: grid) {
+        .comment-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        }
+        
+        .comment-image {
+            max-width: 100%;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <img src="WhatsApp Image 2025-05-06 at 4.18.28 PM.jpeg" alt="Banner del blog" class="banner">
+        <nav class="tabs">
+            <!--<button class="tab-button active" onclick="openTab(event, 'inicio')">Inicio</button>-->
+            <button class="tab-button" onclick="openTab(event, 'Centro')">Región Centro</button>
+            <button class="tab-button" onclick="openTab(event, 'Este')">Región Este</button>
+            <button class="tab-button" onclick="openTab(event, 'Norte')">Región Norte</button>
+            <button class="tab-button" onclick="openTab(event, 'Centro-Sur')">Región Centro Sur</button>
+            <button class="tab-button" onclick="openTab(event, 'Región-Sur')">Región Sur</button>
+            <button class="tab-button" onclick="openTab(event, 'Malargüe')">Región Sur (Malargüe)</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Contenido de cada pestaña -->
+         <!-- <div id="inicio" class="tab-content active">
+         <h2>Bienvenido al Blog</h2>
+            <p>Acá vas a encontrar de todo, como en el kiosco de la esquina.</p>
+        </div> -->
+        <div id="mensaje-inicial" class="tab-content active">
+  <h2 style="text-align: center; margin-top: 50px;">Seleccione su región de trabajo 🧉</h2>
+</div>
+
+
+        <!-- Región Centro -->
+        <div id="Centro" class="tab-content">
+            <div class="region-tabs">
+                <button class="region-tab-button active" onclick="openRegionTab(event, 'Centro-propuestas')">Propuestas para el aula</button>
+                <button class="region-tab-button" onclick="openRegionTab(event, 'Centro-Evaluación')">Evaluación</button>
+            </div>
+            
+            <div id="Centro-propuestas" class="region-tab-content active">
+                <h2>Propuestas para el aula - Región Centro</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+            
+            <div id="Centro-Evaluación" class="region-tab-content">
+                <h2>Evaluación - Región Centro</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Región Este -->
+        <div id="Este" class="tab-content">
+            <div class="region-tabs">
+                <button class="region-tab-button active" onclick="openRegionTab(event, 'Este-propuestas')">Propuestas para el aula</button>
+                <button class="region-tab-button" onclick="openRegionTab(event, 'Este-Evaluación')">Evaluación</button>
+            </div>
+            
+            <div id="Este-propuestas" class="region-tab-content active">
+                <h2>Propuestas para el aula - Región Este</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+            
+            <div id="Este-Evaluación" class="region-tab-content">
+                <h2>Evaluación - Región Este</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Región Norte -->
+        <div id="Norte" class="tab-content">
+            <div class="region-tabs">
+                <button class="region-tab-button active" onclick="openRegionTab(event, 'Norte-propuestas')">Propuestas para el aula</button>
+                <button class="region-tab-button" onclick="openRegionTab(event, 'Norte-Evaluación')">Evaluación</button>
+            </div>
+            
+            <div id="Norte-propuestas" class="region-tab-content active">
+                <h2>Propuestas para el aula - Región Norte</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+            
+            <div id="Norte-Evaluación" class="region-tab-content">
+                <h2>Evaluación - Región Norte</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Región Centro Sur -->
+        <div id="Centro-Sur" class="tab-content">
+            <div class="region-tabs">
+                <button class="region-tab-button active" onclick="openRegionTab(event, 'Centro-Sur-propuestas')">Propuestas para el aula</button>
+                <button class="region-tab-button" onclick="openRegionTab(event, 'Centro-Sur-Evaluación')">Evaluación</button>
+            </div>
+            
+            <div id="Centro-Sur-propuestas" class="region-tab-content active">
+                <h2>Propuestas para el aula - Región Centro Sur</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+            
+            <div id="Centro-Sur-Evaluación" class="region-tab-content">
+                <h2>Evaluación - Región Centro Sur</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Región Sur -->
+        <div id="Región-Sur" class="tab-content">
+            <div class="region-tabs">
+                <button class="region-tab-button active" onclick="openRegionTab(event, 'Región-Sur-propuestas')">Propuestas para el aula</button>
+                <button class="region-tab-button" onclick="openRegionTab(event, 'Región-Sur-Evaluación')">Evaluación</button>
+            </div>
+            
+            <div id="Región-Sur-propuestas" class="region-tab-content active">
+                <h2>Propuestas para el aula - Región Sur</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+            
+            <div id="Región-Sur-Evaluación" class="region-tab-content">
+                <h2>Evaluación - Región Sur</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+        </div>
+
+        <!-- Región Sur (Malargüe) -->
+        <div id="Malargüe" class="tab-content">
+            <div class="region-tabs">
+                <button class="region-tab-button active" onclick="openRegionTab(event, 'Malargüe-propuestas')">Propuestas para el aula</button>
+                <button class="region-tab-button" onclick="openRegionTab(event, 'Malargüe-Evaluación')">Evaluación</button>
+            </div>
+            
+            <div id="Malargüe-propuestas" class="region-tab-content active">
+                <h2>Propuestas para el aula - Región Sur (Malargüe)</h2>
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+            
+            <div id="Malargüe-Evaluación" class="region-tab-content">
+                <h2>Evaluación - Región Sur (Malargüe)</h2>
+                <!-- Galería -->
+<!-- Comentarios -->
+<div class="comments-section">
+    <h3>Comentarios</h3>
+    <div class="comment-form">
+        <textarea placeholder="Añade un comentario..." rows="3" class="comment-textarea"></textarea>
+        <div class="image-upload">
+            <input type="file" class="image-upload-input" multiple accept="image/*" style="display: none;">
+            <button class="upload-button">Adjuntar imágenes</button>
+            <div class="preview-images"></div>
+        </div>
+        <button class="submit-comment" onclick="addComment(this)">Publicar</button>
+    </div>
+    <div class="comments-list">
+        <!-- Comentarios se añadirán aquí -->
+    </div>
+</div>
+
+<!-- Modal para visualización de imágenes (solo uno en toda la página) -->
+<div id="image-modal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modal-image">
+    <a class="prev">&#10094;</a>
+    <a class="next">&#10095;</a>
+</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 - Blog hecho por Pablo con HTML y mate 🧉</p>
+    </footer>
+
+
+    <!-- Popup de edición -->
+<div id="edit-popup" class="popup-overlay">
+  <div class="popup-content">
+    <h3>Editar Comentario</h3>
+    <textarea id="edit-textarea" rows="4"></textarea>
+    <div id="edit-images-container" class="edit-preview-images"></div>
+    <div class="popup-buttons">
+      <button id="edit-confirm">Guardar</button>
+      <button id="edit-cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Popup de confirmación para eliminar -->
+<div id="delete-popup" class="popup-overlay">
+  <div class="popup-content">
+    <h3>¿Estás seguro de que deseas eliminar este comentario?</h3>
+    <div class="popup-buttons">
+      <button id="delete-confirm">Sí, eliminar</button>
+      <button id="delete-cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+<!-- Añadir esto cerca de los otros popups -->
+<div id="delete-image-popup" class="popup-overlay">
+  <div class="popup-content">
+    <h3>¿Eliminar esta imagen?</h3>
+    <div class="popup-buttons">
+      <button id="delete-image-confirm">Sí, eliminar</button>
+      <button id="delete-image-cancel">Cancelar</button>
+    </div>
+  </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>

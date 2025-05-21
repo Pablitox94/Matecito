@@ -1,0 +1,555 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+header {
+    background-color: #40A2E3;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.tab-button {
+    background-color: inherit;
+    color: white;
+    border: none;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.tab-button:hover {
+    background-color: #40A2E3;
+}
+
+.tab-button.active {
+    background-color: #0D9276;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    animation: fadeEffect 0.5s;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+}
+header {
+    background-image: url('WhatsApp Image 2025-05-06 at 4.18.28 PM.jpeg'); /* Cambiá por tu imagen */
+    background-size: cover; /* Cubre todo el espacio */
+    background-position: center; /* Centra la imagen */
+    color: white;
+    text-align: center;
+    padding: 4rem 1rem; /* Ajustá el padding para altura */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Texto legible */
+}
+/* Estilos para las subsecciones de región */
+.region-tabs {
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.region-tab-button {
+    background-color: inherit;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.region-tab-button:hover {
+    background-color: #ddd;
+}
+
+.region-tab-button.active {
+    background-color: #0D9276;
+    color: white;
+}
+
+.region-tab-content {
+    display: none;
+}
+
+.region-tab-content.active {
+    display: block;
+}
+
+/* Estilos para la galería */
+.gallery-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-image img {
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.thumbnail-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 2px solid transparent;
+}
+
+.thumbnail:hover {
+    border-color: #0D9276;
+}
+
+/* Estilos para comentarios */
+.comments-section {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.submit-comment {
+    background-color: #0D9276;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin-top: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.submit-comment:hover {
+    background-color: #0b7a62;
+}
+
+.comments-list {
+    margin-top: 20px;
+}
+
+.comment {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.comment:last-child {
+    border-bottom: none;
+}
+
+.comment-text {
+    margin: 0 0 5px 0;
+}
+
+.comment-date {
+    font-size: 0.8em;
+    color: #777;
+}
+/* Estilos para imágenes en comentarios */
+.preview-images {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.preview-thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.comment-images {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.comment-image {
+    max-width: 150px;
+    max-height: 150px;
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.comment-image:hover {
+    border-color: #0D9276;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    overflow: auto;
+}
+
+.modal-content {
+    display: block;
+    margin: auto;
+    max-width: 90%;
+    max-height: 80vh;
+    margin-top: 5vh;
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-modal:hover {
+    color: #bbb;
+}
+
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    transition: 0.3s;
+    user-select: none;
+}
+
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.prev {
+    left: 0;
+    border-radius: 0 3px 3px 0;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}
+.comment-actions {
+    margin-top: 10px;
+}
+
+.comment-actions button {
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.comment-actions button:hover {
+    background-color: #aaa;
+}
+.popup-overlay {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.popup-buttons {
+    margin-top: 10px;
+}
+
+.popup-buttons button {
+    margin: 0 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #0D9276;
+    color: white;
+}
+
+.popup-buttons button:hover {
+    background-color: #0b7a62;
+}
+.edit-preview-images {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.edit-preview-images img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    border: 2px solid #ddd;
+    cursor: pointer;
+}
+
+.edit-preview-images img:hover {
+    border-color: red;
+}
+/* Estilos para el botón de añadir imágenes en edición */
+.add-images-button {
+    background-color: #40A2E3;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+}
+
+.add-images-button:hover {
+    background-color: #2d8ac7;
+}
+
+/* Ajustes para el contenedor de imágenes en edición */
+.edit-images-controls {
+    margin-top: 10px;
+}/* Añade estos estilos al final de tu archivo CSS */
+
+/* Media Queries para Responsive Design */
+@media (max-width: 768px) {
+    /* Ajustes para tablets y móviles */
+    .tabs {
+        flex-direction: column;
+    }
+    
+    .tab-button {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    .region-tabs {
+        flex-direction: column;
+    }
+    
+    .region-tab-button {
+        width: 100%;
+        padding: 10px;
+    }
+    
+    /* Comentarios responsive */
+    .comments-section {
+        padding: 15px;
+        margin: 15px auto;
+    }
+    
+    .comment-form textarea {
+        font-size: 16px; /* Mejor legibilidad en móviles */
+    }
+    
+    .submit-comment {
+        width: 100%;
+        padding: 12px;
+    }
+    
+    /* Galería responsive */
+    .gallery-container {
+        padding: 10px;
+    }
+    
+    .thumbnail-container {
+        justify-content: center;
+    }
+    
+    .thumbnail {
+        width: 80px;
+        height: 80px;
+    }
+    
+    /* Imágenes en comentarios */
+    .preview-thumbnail, .comment-image {
+        max-width: 100px;
+        max-height: 100px;
+    }
+    
+    /* Popups responsive */
+    .popup-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    /* Modal de imágenes */
+    .modal-content {
+        max-width: 95%;
+        max-height: 70vh;
+    }
+    
+    .close-modal {
+        top: 10px;
+        right: 20px;
+        font-size: 30px;
+    }
+    
+    .prev, .next {
+        font-size: 24px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes específicos para móviles pequeños */
+    header {
+        padding: 2rem 0.5rem;
+    }
+    
+    .tab-content {
+        padding: 10px;
+    }
+    
+    /* Imágenes más pequeñas en móviles */
+    .preview-thumbnail, .comment-image {
+        max-width: 80px;
+        max-height: 80px;
+    }
+    
+    /* Texto más grande para mejor legibilidad */
+    body {
+        font-size: 16px;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* Botones de acciones en comentarios */
+    .comment-actions button {
+        padding: 8px 12px;
+        margin-right: 5px;
+        font-size: 14px;
+    }
+    
+    /* Ajustes para el editor de imágenes */
+    .edit-preview-images img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .add-images-button {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+/* Estilos generales para mejorar el responsive */
+.tab-content {
+    box-sizing: border-box;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.comment-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.preview-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+}
+
+/* Mejorar el input file en móviles */
+.image-upload-input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.upload-button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    box-sizing: border-box;
+}
+
+/* Ajustar el modal para móviles */
+@media (hover: none) {
+    .prev, .next {
+        padding: 8px;
+        font-size: 18px;
+    }
+}
